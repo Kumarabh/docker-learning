@@ -28,18 +28,6 @@ docker system prune -y
 git pull origin master
 docker-compose up
 ```
-#### DOCKER HUB login/ LOGIN
-
-```
-username: Abhishek9195
-email: abhishek.km2031@gmail.com
-password: Welcome12#
----
-username: rapper24x7
-email: abhishek.km2010@gmail.com
-password: Rapper3382614
-----
-```
 
 #### nginx server
 ```
