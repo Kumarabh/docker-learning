@@ -267,7 +267,7 @@ docker exec -it container script.sh
 ```
 docker rm -v container_name
 ```
---------------------------------------------------------------------------------------------- DOCKER VOLUME
+#### DOCKER VOLUME
 #### CREATE VOLUME
 ```
 docker volume create volume-1
@@ -297,7 +297,7 @@ docker volume inspect volume-1
 ```
 docker run -d -p 3000:3000 --name c001 image_name --mount source=myVolume
 ```
---------------------------------------------------------------------------------------------- DOCKER REPOSITORY 
+#### DOCKER REPOSITORY 
 // ( SERVICE: AMAZON ELASTIC CONTAINER REGISTRY | PUSH IMAGE TO REPO. )
 
 #### INSTALL AWS CLI (Optional)
@@ -309,12 +309,13 @@ docker run -d -p 3000:3000 --name c001 image_name --mount source=myVolume
 https://us-east-1.console.aws.amazon.com/iamv2/home####/security_credentials
 ``````
 
-###```# CONFIGURE AWS (Optional)
+#### CONFIGURE AWS (Optional)
 ```
 > aws configure
--> ```access id
+-> access id
 -> accesss password
 -> region (us-east-1) // region matters, the repository will be created in this region only.
+```
 
 #### IF WANNA CLEAN YOUR DOCKER (optional)
 ```
@@ -326,9 +327,9 @@ docker rmi $(docker images -q) -f
 ```
 #### CREATE A NEW REPOSITORY 
 ```
--> IMPORTANT:- repository name and image tag name should be same ( example:- my-app )
-htt```ps://us-east-1.console.aws.amazon.com/ecr/repositories
-
+IMPORTANT:- repository name and image tag name should be same ( example:- my-app )
+https://us-east-1.console.aws.amazon.com/ecr/repositories
+```
 #### GO TO CONSOLE
 ```
 #### AUTHENTICATE YOUR AWS ACCESS ID AND PASSWORD
@@ -472,10 +473,7 @@ docker service scale service_name=10
 ```
 docker service logs stack_name service_name
 ```
-
-
-
---------------------------------------------------------------------------------------------- DOCKER HUB ( REGISTRY )
+#### DOCKER HUB ( REGISTRY )
 
 #### LOGIN TO DOCKER HUB OR REGISTRY
 ```
@@ -502,7 +500,7 @@ docker search image_name
 docker push user_name/image_name
 ```
 
---------------------------------------------------------------------------------------------- DOCKER NETWORK AND NETWORK ISOLATION
+#### DOCKER NETWORK AND NETWORK ISOLATION
 
 #### CREATE A NEW NETWORK
 ```
@@ -530,7 +528,7 @@ docker network connect secure-network login-container
 docker network disconnect secure-network login-container
 ```
 
-// EXAMPLE:-
+EXAMPLE:-
 #### Create 2 containers (login, logout) with nginx image
 ```
 docker run -d --name login nginx:latest
@@ -614,16 +612,16 @@ docker run -d --name host-nw-container --network=secure-network nginx:latest
 #### START AN EXISTING CONTAINER CONNECTED TO SPECIFIC NETWORK
 ```
 docker start --network=secure-network login-container
-```
 docker ps
 docker inspect host-nw-container
 -> you will see networking is host.
 -> no ip address is assigned to this container.
 -> docker didn't create any virtual network for this container because container is connected to host network, so it can be directly accessed with host ip address. container virtual ip address isn't required.
+```
 
 #### DISCONNECT A CONTAINER FROM bridge network AND CONNECT IT TO secure-network
 ```
- docker network disconnect bridge payment
+docker network disconnect bridge payment
 docker start --network=secure-network login-container
 ```
 #### DOCKER FILE (BUILD DOCKER IMAGE STEPS)
@@ -682,8 +680,8 @@ docker build -t angular-app .
 #### RUN IMAGE
 ```
 docker run -d --name=angular-app -p 4200:80 angular-app
--> host (4200) 
--> nginx (80)
+host (4200) 
+nginx (80)
 ```
 
 OPEN BROWSER AND HIT:- http://15.206.167.186:4200/
